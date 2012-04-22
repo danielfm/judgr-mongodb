@@ -1,7 +1,7 @@
 # MongoDB Support for Judgr
 
-This project adds MongoDB support for Judgr, is a
-[naïve Bayes classifier](http://en.wikipedia.org/wiki/Naive_Bayes_classifier)
+This project adds MongoDB support for
+[Judgr](http://danielfm.github.com/judgr/), a naïve Bayes classifier
 library written in Clojure.
 
 ## Getting Started
