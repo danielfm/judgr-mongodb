@@ -27,12 +27,12 @@ to create your classifier:
 (def new-settings
   (update-settings settings
                    [:database :type] :mongo
-                   [:database :mongo :database] "your-db"
-                   [:database :mongo :host]     "localhost"
-                   [:database :mongo :port]     27017
-                   [:database :mongo :auth?]    false
-                   [:database :mongo :username] ""
-                   [:database :mongo :password] ""))
+                   [:database :mongo] {:database "your-db"
+                                       :host     "localhost"
+                                       :port     27017
+                                       :auth?    false
+                                       :username ""
+                                       :password ""}))
 
 (def classifier (classifier-from new-settings))
 
