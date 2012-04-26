@@ -92,13 +92,13 @@
 
 (deftest getting-items
   (with-fixture basic-db []
-    (is (= '("Some message"
-             "Another message")
-           (map :item (.get-items db))))
+    (is (= '({:item "Some message" :class :ok}
+             {:item "Another message" :class :ok})
+           (.get-items db)))
 
     (testing "when there's no items"
       (with-fixture empty-db []
-        (is (= '() (.get-items db)))))))
+        (is (empty? (.get-items db)))))))
 
 (deftest counting-items
   (with-fixture basic-db []

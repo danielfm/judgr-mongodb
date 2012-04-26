@@ -1,8 +1,7 @@
 (ns judgr.mongo.db
   (:use [judgr.core]
         [judgr.db.base])
-  (:require [somnium.congomongo :as mongodb])
-  (:import [java.util Date]))
+  (:require [somnium.congomongo :as mongodb]))
 
 (defn- ensure-indexes!
   "Creates all necessary MongoDB indexes."
@@ -38,7 +37,6 @@
   (add-item! [db item class]
     (ensure-valid-class settings class
       (let [data {:item item
-                  :created-at (Date.)
                   :class class}]
         (mongodb/with-mongo conn
           (mongodb/insert! :items data))
@@ -54,8 +52,9 @@
 
   (get-feature [db feature]
     (mongodb/with-mongo conn
-      (mongodb/fetch-one :features
-                         :where {:feature feature})))
+      (let [feature (mongodb/fetch-one :features
+                                       :where {:feature feature})]
+        (dissoc feature :_id))))
 
   (count-features [db]
     (mongodb/with-mongo conn
@@ -63,7 +62,8 @@
 
   (get-items [db]
     (mongodb/with-mongo conn
-      (mongodb/fetch :items)))
+      (map #(hash-map :item (:item %) :class (keyword (:class %)))
+           (mongodb/fetch :items))))
 
   (count-items [db]
     (mongodb/with-mongo conn
