@@ -1,11 +1,11 @@
-(ns judgr-mongodb.test.db.mongo-db
+(ns judgr.mongo.test.db
   (:use [judgr.core]
         [judgr.settings]
-        [judgr-mongodb.db.mongo-db]
-        [judgr-mongodb.test.util]
+        [judgr.mongo.db]
+        [judgr.mongo.test.util]
         [clojure.test])
   (:require [somnium.congomongo :as mongodb])
-  (:import [judgr_mongodb.db.mongo_db MongoDB]))
+  (:import [judgr.mongo.db MongoDB]))
 
 (def new-settings
   (update-settings settings
@@ -47,7 +47,7 @@
 
     (testing "if class is invalid"
       (is (thrown? IllegalArgumentException
-                   (.add-item! db "Uma mensagem" :some-class))))))
+                   (.add-item! db "Some message" :some-class))))))
 
 (deftest adding-features
   (with-fixture empty-db []
@@ -60,7 +60,7 @@
 
     (testing "if class is invalid"
       (is (thrown? IllegalArgumentException
-                   (.add-feature! db "Uma mensagem" "message" :some-class))))))
+                   (.add-feature! db "Some message" "message" :some-class))))))
 
 (deftest updating-features
   (with-fixture basic-db []

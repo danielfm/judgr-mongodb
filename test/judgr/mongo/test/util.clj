@@ -1,4 +1,4 @@
-(ns judgr-mongodb.test.util
+(ns judgr.mongo.test.util
   (:use [clojure.tools.macro]))
 
 (def ^:dynamic *fixtures* (atom {}))

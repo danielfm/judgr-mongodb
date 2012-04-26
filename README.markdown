@@ -13,18 +13,18 @@ Add the following dependencies to your _project.clj_ file:
 ````clojure
 
 [judgr "0.1.1"]
-[judgr-mongodb "0.1.0"]
+[judgr/mongodb "0.1.1"]
 ````
 
-Then, require the `mongo-db` module and adjust the settings in order
-to create your classifier:
+Then, require the `judgr.mongo.db` module and adjust the settings in
+order to create your classifier:
 
 ````clojure
 
 (ns your-ns
   (:use [judgr.core]
         [judgr.settings]
-        [judgr-mongodb.db.mongo-db]))
+        [judgr.mongo.db]))
 
 (def new-settings
   (update-settings settings

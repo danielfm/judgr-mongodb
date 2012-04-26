@@ -1,4 +1,4 @@
-(ns judgr-mongodb.db.mongo-db
+(ns judgr.mongo.db
   (:use [judgr.core]
         [judgr.db.base])
   (:require [somnium.congomongo :as mongodb])
@@ -76,5 +76,4 @@
 
 (defmethod db-from :mongo [settings]
   (let [conn (create-connection! settings)]
-    (println conn)
     (MongoDB. settings conn)))
