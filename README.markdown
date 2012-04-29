@@ -12,7 +12,7 @@ Add the following dependencies to your _project.clj_ file:
 
 ````clojure
 
-[judgr/mongodb "0.1.1"]
+[judgr/mongodb "0.1.2"]
 ````
 
 Then, require the `judgr.mongo.db` module and adjust the settings in
