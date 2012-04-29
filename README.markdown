@@ -12,7 +12,6 @@ Add the following dependencies to your _project.clj_ file:
 
 ````clojure
 
-[judgr "0.1.1"]
 [judgr/mongodb "0.1.1"]
 ````
 
