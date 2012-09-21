@@ -12,21 +12,14 @@
                    [:database :type] :mongo
                    [:database :mongo :database] "judgr-test"))
 
-(defn- clean-db!
-  "Removes all documents from the database."
-  [db]
-  (mongodb/with-mongo (.get-connection db)
-    (mongodb/destroy! :items {})
-    (mongodb/destroy! :features {})))
-
 (def-fixture empty-db []
   (let [db (db-from new-settings)]
-    (clean-db! db)
+    (.clean-db! db)
     (test-body)))
 
 (def-fixture basic-db []
   (let [db (db-from new-settings)]
-    (clean-db! db)
+    (.clean-db! db)
     (.add-item! db "Some message" :positive)
     (.add-item! db "Another message" :positive)
     (.add-feature! db "Some message" "message" :positive)

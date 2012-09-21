@@ -50,6 +50,11 @@
                                  (str (name :classes) "." (name class)) 1}})
         (.get-feature db feature))))
 
+  (clean-db! [db]
+    (mongodb/with-mongo conn
+      (mongodb/destroy! :items {})
+      (mongodb/destroy! :features {})))
+
   (get-feature [db feature]
     (mongodb/with-mongo conn
       (let [feature (mongodb/fetch-one :features
