@@ -1,7 +1,5 @@
 # MongoDB Support for Judgr
 
-[![Build Status](https://secure.travis-ci.org/danielfm/judgr-mongodb.png?branch=master)](http://travis-ci.org/danielfm/judgr-mongodb)
-
 This project adds [MongoDB](http://mongodb.org) support for
 [Judgr](http://danielfm.github.com/judgr/), a naïve Bayes classifier
 library written in Clojure.
